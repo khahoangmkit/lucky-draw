@@ -435,7 +435,7 @@ export const defaultTemporaryPrize = <IPrizeConfig>{
 export const defaultImageList = [
   {
     id: '0',
-    name: 'image_1',
+    name: 'background',
     url: 'bg-1.jpg'
   },
   // {
