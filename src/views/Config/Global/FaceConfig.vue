@@ -167,35 +167,35 @@ onMounted(() => {
 <template>
     <dialog id="my_modal_1" ref="resetDataDialogRef" class="border-none modal">
         <div class="modal-box">
-            <h3 class="text-lg font-bold">提示!</h3>
-            <p class="py-4">该操作会重置所有数据，是否继续？</p>
+            <h3 class="text-lg font-bold">Gợi ý!</h3>
+            <p class="py-4">Thao tác này sẽ mất hết dữ liệu，tiếp tục？</p>
             <div class="modal-action">
                 <form method="dialog" class="flex gap-3">
                     <!-- if there is a button in form, it will close the modal -->
-                    <button class="btn" @click="resetDataDialogRef.close()">取消</button>
-                    <button class="btn" @click="resetData">确定</button>
+                    <button class="btn" @click="resetDataDialogRef.close()">Hủy</button>
+                    <button class="btn" @click="resetData">Xác nhận</button>
                 </form>
             </div>
         </div>
     </dialog>
     <div>
-        <h2>全局配置</h2>
+        <h2>Config</h2>
         <div class="mb-8">
-            <button class="btn btn-sm btn-primary" @click="resetDataDialogRef.showModal()">重置所有数据</button>
+            <button class="btn btn-sm btn-primary" @click="resetDataDialogRef.showModal()">Đặt lại Config</button>
         </div>
         <label class="flex flex-row items-center w-full gap-24 mb-10 form-control">
             <div class="">
                 <div class="label">
-                    <span class="label-text">标题</span>
+                    <span class="label-text">Title</span>
                 </div>
-                <input type="text" v-model="topTitleValue" placeholder="输入标题"
+                <input type="text" v-model="topTitleValue" placeholder="Nhập tiêu đề"
                     class="w-full max-w-xs input input-bordered" />
             </div>
         </label>
         <label class="flex flex-row items-center w-full gap-24 mb-10 form-control">
             <div class="">
                 <div class="label">
-                    <span class="label-text">列数</span>
+                    <span class="label-text">Số lượng cột</span>
                 </div>
                 <input type="number" v-model="formData.rowCount" placeholder="Type here"
                     class="w-full max-w-xs input input-bordered" />
@@ -206,10 +206,10 @@ onMounted(() => {
                 </div>
             </div>
             <div>
-                <div class="tooltip" data-tip="该项比较耗费时间和性能">
+                <div class="tooltip" data-tip="Mục này tốn thời gian và hiệu suất cao">
                     <button class="mt-5 btn btn-info btn-sm" :disabled="isRowCountChange != 1"
                         @click="resetPersonLayout">
-                        <span>重设布局</span>
+                        <span>Đặt lại bố cục</span>
                         <span class="loading loading-ring loading-md" v-show="isRowCountChange == 2"></span>
                     </button>
                 </div>
@@ -217,34 +217,34 @@ onMounted(() => {
         </label>
         <label class="w-full max-w-xs form-control">
             <div class="label">
-                <span class="label-text">选择主题</span>
+                <span class="label-text">Chọn chủ đề</span>
             </div>
             <select data-choose-theme class="w-full max-w-xs border-solid select border-1" v-model="themeValue">
-                <option disabled selected>选取主题</option>
+                <option disabled selected>Chọn chủ đề</option>
                 <option v-for="(item, index) in themeList" :key="index" :value="item">{{ item }}</option>
             </select>
         </label>
         <label class="w-full max-w-xs form-control">
             <div class="label">
-                <span class="label-text">选择背景图片</span>
+                <span class="label-text">Chọn nền</span>
             </div>
             <select data-choose-theme class="w-full max-w-xs border-solid select border-1"
                 v-model="backgroundImageValue">
-                <option disabled selected>选取背景图片</option>
+                <option disabled selected>Chọn nền</option>
                 <option v-for="(item, index) in [{ name: '无', url: '', id: '' }, ...imageList]" :key="index"
                     :value="item">{{ item.name }}</option>
             </select>
         </label>
         <label class="w-full max-w-xs form-control">
             <div class="label">
-                <span class="label-text">卡片颜色</span>
+                <span class="label-text">Màu thẻ</span>
             </div>
             <ColorPicker ref="colorPickerRef" v-model="cardColorValue" v-model:pure-color="cardColorValue">
             </ColorPicker>
         </label>
         <label class="w-full max-w-xs form-control">
             <div class="label">
-                <span class="label-text">中奖卡片颜色</span>
+                <span class="label-text">Màu thẻ chiến thắng</span>
             </div>
             <ColorPicker ref="colorPickerRef" v-model="luckyCardColorValue" v-model:pure-color="luckyCardColorValue">
             </ColorPicker>
@@ -252,7 +252,7 @@ onMounted(() => {
 
         <label class="w-full max-w-xs form-control">
             <div class="label">
-                <span class="label-text">文字颜色</span>
+                <span class="label-text">màu văn bản</span>
             </div>
             <ColorPicker ref="colorPickerRef" v-model="textColorValue" v-model:pure-color="textColorValue">
             </ColorPicker>
@@ -260,14 +260,14 @@ onMounted(() => {
         <label class="flex flex-row w-full max-w-xs gap-10 mb-10 form-control">
             <div>
                 <div class="label">
-                    <span class="label-text">卡片宽度</span>
+                    <span class="label-text">Chiều rộng thẻ</span>
                 </div>
                 <input type="number" v-model="cardSizeValue.width" placeholder="Type here"
                     class="w-full max-w-xs input input-bordered" />
             </div>
             <div>
                 <div class="label">
-                    <span class="label-text">卡片高度</span>
+                    <span class="label-text">Chiều cao thẻ</span>
                 </div>
                 <input type="number" v-model="cardSizeValue.height" placeholder="Type here"
                     class="w-full max-w-xs input input-bordered" />
@@ -275,14 +275,14 @@ onMounted(() => {
         </label>
         <label class="w-full max-w-xs mb-10 form-control">
             <div class="label">
-                <span class="label-text">文字大小</span>
+                <span class="label-text">Font Size</span>
             </div>
             <input type="number" v-model="textSizeValue" placeholder="Type here"
                 class="w-full max-w-xs input input-bordered" />
         </label>
         <label class="w-full max-w-xs form-control">
             <div class="label">
-                <span class="label-text">高亮颜色</span>
+                <span class="label-text">Màu nổi bật mẫu</span>
             </div>
             <ColorPicker ref="colorPickerRef" v-model="patternColorValue" v-model:pure-color="patternColorValue">
             </ColorPicker>
@@ -290,7 +290,7 @@ onMounted(() => {
         <label class="flex flex-row items-center w-full gap-24 mb-0 form-control">
             <div>
                 <div class="label">
-                    <span class="label-text">图案设置</span>
+                    <span class="label-text">Cài đặt mẫu</span>
                 </div>
                 <div class="h-auto">
                     <PatternSetting :rowCount="rowCount" :cardColor="cardColor" :patternColor="patternColor"
@@ -300,18 +300,18 @@ onMounted(() => {
         </label>
         <div class="flex w-full h-24 gap-3 m-0">
             <button class="mt-5 btn btn-info btn-sm" @click.stop="clearPattern">
-                <span>清空图案设置</span>
+                <span>Xóa cài đặt mẫu</span>
             </button>
-            <div class="tooltip" data-tip="默认图案设置针对17列时有效，其他列数请自行设置">
+            <div class="tooltip" data-tip="Cài đặt mẫu mặc định có hiệu lực cho 17 cột. Vui lòng tự đặt số cột khác.">
                 <button class="mt-5 btn btn-info btn-sm" @click="resetPattern">
-                    <span>默认图案设置</span>
+                    <span>Cài đặt mẫu mặc định</span>
                 </button>
             </div>
         </div>
 
         <label class="w-full max-w-xs mb-10 form-control">
             <div class="label">
-                <span class="label-text">是否常显奖品列表</span>
+                <span class="label-text">Luôn hiển thị danh sách giải thưởng</span>
             </div>
             <input type="checkbox" :checked="isShowPrizeListValue"
                 @change="isShowPrizeListValue = !isShowPrizeListValue"

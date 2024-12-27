@@ -176,23 +176,23 @@ watch(() => prizeList.value, (val: IPrizeConfig[]) => {
                 </label>
                 <label class="w-1/2 max-w-xs mb-10 form-control">
                     <div class="label">
-                        <span class="label-text">名称</span>
+                        <span class="label-text">Tên</span>
                     </div>
                     <input type="text" v-model="item.name" placeholder="名称"
                         class="w-full max-w-xs input-sm input input-bordered" />
                 </label>
                 <label class="w-1/2 max-w-xs mb-10 form-control">
                     <div class="label">
-                        <span class="label-text">全员参加</span>
+                        <span class="label-text">Tất cả</span>
                     </div>
                     <input type="checkbox" :checked="item.isAll" @change="item.isAll = !item.isAll"
                         class="mt-2 border-solid checkbox checkbox-secondary border-1" />
                 </label>
                 <label class="w-1/2 max-w-xs mb-10 form-control">
                     <div class="label">
-                        <span class="label-text">抽奖人数</span>
+                        <span class="label-text">Số giải</span>
                     </div>
-                    <input type="number" v-model="item.count" placeholder="获奖人数" @change="changePrizePerson(item)"
+                    <input type="number" v-model="item.count" placeholder="Số người chiến thắng" @change="changePrizePerson(item)"
                         class="w-full max-w-xs p-0 m-0 input-sm input input-bordered" />
                     <div class="tooltip tooltip-bottom" :data-tip="'已抽取:' + item.isUsedCount + '/' + item.count">
                         <progress class="w-full progress" :value="item.isUsedCount" :max="item.count"></progress>
@@ -207,25 +207,25 @@ watch(() => prizeList.value, (val: IPrizeConfig[]) => {
                 </label> -->
                 <label class="w-1/2 max-w-xs mb-10 form-control">
                     <div class="label">
-                        <span class="label-text">已抽取</span>
+                        <span class="label-text">Đã trúng</span>
                     </div>
                     <input type="checkbox" :checked="item.isUsed" @change="changePrizeStatus(item)"
                         class="mt-2 border-solid checkbox checkbox-secondary border-1" />
                 </label>
                 <label class="w-full max-w-xs mb-10 form-control">
                     <div class="label">
-                        <span class="label-text">图片</span>
+                        <span class="label-text">Hình ảnh</span>
                     </div>
                     <select class="w-full max-w-xs select select-warning select-sm" v-model="item.picture">
                         <option v-if="item.picture.id" :value="{ id: '', name: '', url: '' }">❌</option>
-                        <option disabled selected>选择一张图片</option>
+                        <option disabled selected>Chọn ảnh</option>
                         <option v-for="picItem in localImageList" :key="picItem.id" :value="picItem">{{ picItem.name }}
                         </option>
                     </select>
                 </label>
                 <label class="w-full max-w-xs mb-10 form-control" v-if="item.separateCount">
                     <div class="label">
-                        <span class="label-text">单次抽取个数</span>
+                        <span class="label-text">Số giải mỗi lần</span>
                     </div>
                     <div class="flex justify-start w-full h-full" @click="selectPrize(item)">
                         <ul class="flex flex-wrap w-full h-full gap-1 p-0 pt-1 m-0 cursor-pointer"
@@ -240,7 +240,7 @@ watch(() => prizeList.value, (val: IPrizeConfig[]) => {
                                 </div>
                             </li>
                         </ul>
-                        <button v-else class="btn btn-secondary btn-xs">设置</button>
+                        <button v-else class="btn btn-secondary btn-xs">Setting</button>
                     </div>
                 </label>
                 <label class="w-full max-w-xs mb-10 form-control">
@@ -248,7 +248,7 @@ watch(() => prizeList.value, (val: IPrizeConfig[]) => {
                         <span class="label-text">Action</span>
                     </div>
                     <div class="flex gap-2">
-                        <button class="btn btn-error btn-sm" @click="delItem(item)">删除</button>
+                        <button class="btn btn-error btn-sm" @click="delItem(item)">Xóa</button>
                     </div>
                 </label>
             </li>

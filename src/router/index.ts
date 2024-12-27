@@ -15,7 +15,7 @@ export const configRoutes={
         name: 'PersonConfig',
         component: () => import('@/views/Config/Person/PersonConfig.vue'),
         meta: {
-          title: '人员配置',
+          title: 'Employee',
           icon: 'person',
         },
         children:[
@@ -28,7 +28,7 @@ export const configRoutes={
                 name:'AllPersonConfig',
                 component:()=>import('@/views/Config/Person/PersonAll.vue'),
                 meta:{
-                    title:'人员名单',
+                    title:'All Employees',
                     icon:'all'
                 }
             },
@@ -37,7 +37,7 @@ export const configRoutes={
                 name:'AlreadyPerson',
                 component:()=>import('@/views/Config/Person/PersonAlready.vue'),
                 meta:{
-                    title:'中奖名单人员',
+                    title:'Already Person',
                     icon:'already'
                 }
             },
@@ -57,7 +57,7 @@ export const configRoutes={
         name: 'PrizeConfig',
         component: () => import('@/views/Config/Prize/PrizeConfig.vue'),
         meta:{
-            title: '奖品配置',
+            title: 'Prize',
             icon: 'prize'
         }
       },
@@ -66,7 +66,7 @@ export const configRoutes={
         name:'GlobalConfig',
         redirect: '/log-lottery/config/global/all',
         meta:{
-            title:'全局配置',
+            title:'Global',
             icon:'global'
         },
         children:[
@@ -75,7 +75,7 @@ export const configRoutes={
                 name:'FaceConfig',
                 component:()=>import('@/views/Config/Global/FaceConfig.vue'),
                 meta:{
-                    title:'界面配置',
+                    title:'Home',
                     icon:'face'
                 }
             },
@@ -84,30 +84,30 @@ export const configRoutes={
                 name:'ImageConfig',
                 component:()=>import('@/views/Config/Global/ImageConfig.vue'),
                 meta:{
-                    title:'图片列表',
+                    title:'Image',
                     icon:'image'
                 }
             },
-            {
-                path:'/log-lottery/config/global/music',
-                name:'MusicConfig',
-                component:()=>import('@/views/Config/Global/MusicConfig.vue'),
-                meta:{
-                    title:'音乐列表',
-                    icon:'music'
-                }
-            }
+            // {
+            //     path:'/log-lottery/config/global/music',
+            //     name:'MusicConfig',
+            //     component:()=>import('@/views/Config/Global/MusicConfig.vue'),
+            //     meta:{
+            //         title:'music',
+            //         icon:'music'
+            //     }
+            // }
         ]
       },
-      {
-        path: '/log-lottery/config/readme',
-        name: 'Readme',
-        component: () => import('@/views/Config/Readme/index.vue'),
-        meta:{
-            title: '操作说明',
-            icon: 'readme'
-        }
-      },
+      // {
+      //   path: '/log-lottery/config/readme',
+      //   name: 'Readme',
+      //   component: () => import('@/views/Config/Readme/index.vue'),
+      //   meta:{
+      //       title: '操作说明',
+      //       icon: 'readme'
+      //   }
+      // },
     ]
   }
 const routes = [

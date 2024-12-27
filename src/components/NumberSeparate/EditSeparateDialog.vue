@@ -74,12 +74,12 @@ onMounted(() => {
 <template>
     <dialog id="my_modal_1" ref="separatedNumberRef" class="z-50 overflow-hidden border-none modal">
         <div class="overflow-hidden modal-box">
-            <h3 class="pb-6 text-lg font-bold">提示!</h3>
-            <p class="pb-8">单次抽取只能抽取10位</p>
+            <h3 class="pb-6 text-lg font-bold">Gợi ý!</h3>
+            <p class="pb-8">Tối đa 10 người mỗi lần quay</p>
             <div class="flex justify-between px-3 text-center separated-number">
                 <div v-for="item in props.totalNumber" :key="item"
                     class="relative flex flex-col items-center cursor-pointer">
-                    <div class="absolute mb-12 text-center tooltip -top-5 hover:text-lg" data-tip="左键切割"
+                    <div class="absolute mb-12 text-center tooltip -top-5 hover:text-lg" data-tip="Nhấn chọn"
                         @click.left="editScale(item)">
                         <span> {{ item }}</span>
                     </div>
@@ -89,7 +89,7 @@ onMounted(() => {
             <div class="modal-action">
                 <form method="dialog">
                     <!-- if there is a button in form, it will close the modal -->
-                    <button class="btn" @click="clearData">关闭</button>
+                    <button class="btn" @click="clearData">Đóng</button>
                 </form>
             </div>
         </div>

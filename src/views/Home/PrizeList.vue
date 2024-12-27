@@ -4,7 +4,7 @@ import { storeToRefs } from 'pinia'
 import useStore from '@/store'
 
 import ImageSync from '@/components/ImageSync/index.vue'
-import defaultPrizeImage from '@/assets/images/龙.png'
+import defaultPrizeImage from '@/assets/images/logo.png'
 import { IPrizeConfig } from '../../types/storeType';
 
 import EditSeparateDialog from '@/components/NumberSeparate/EditSeparateDialog.vue'
@@ -94,13 +94,13 @@ onMounted(() => {
     <div class="flex items-center">
         <dialog id="my_modal_1" ref="temporaryPrizeRef" class="border-none modal">
             <div class="modal-box">
-                <h3 class="text-lg font-bold">Thêm vòng quay</h3>
+                <h3 class="text-lg font-bold">Thêm giải thưởng</h3>
                 <div class="flex flex-col gap-3">
                     <label class="flex w-full max-w-xs">
                         <div class="label">
                             <span class="label-text">Tên:</span>
                         </div>
-                        <input type="text" v-model="temporaryPrize.name" placeholder="Nhập tên"
+                        <input type="text" v-model="temporaryPrize.name" placeholder="Nhập tên giải"
                             class="max-w-xs input-sm input input-bordered" />
                     </label>
                     <label class="flex w-full max-w-xs">
@@ -234,13 +234,13 @@ onMounted(() => {
                         </li>
                     </ul>
                     <div class="flex flex-col gap-3">
-                        <div class="tooltip tooltip-right" data-tip="奖项列表">
+                        <div class="tooltip tooltip-right" data-tip="Danh sách giải">
                             <div class="flex items-center w-6 h-8 rounded-r-lg cursor-pointer prize-option bg-slate-500/50"
                                 @click="prizeShow = !prizeShow">
                                 <svg-icon name="arrow_left" class="w-full h-full"></svg-icon>
                             </div>
                         </div>
-                        <div class="tooltip tooltip-right" data-tip="添加抽奖">
+                        <div class="tooltip tooltip-right" data-tip="Thêm giải">
                             <div class="flex items-center w-6 h-8 rounded-r-lg cursor-pointer prize-option bg-slate-500/50"
                                 @click="addTemporaryPrize">
                                 <svg-icon name="add" class="w-full h-full"></svg-icon>

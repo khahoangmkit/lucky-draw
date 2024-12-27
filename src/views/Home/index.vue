@@ -676,7 +676,7 @@ onUnmounted(() => {
                 </button>
             </div>
 
-            <button class="btn-end btn glass btn-lg" @click="stopLottery" v-if="currentStatus == 2">Dừng</button>
+            <button class="btn-end btn glass btn-lg" @click="stopLottery" v-if="currentStatus == 2">Chọn người thắng</button>
 
             <div v-if="currentStatus == 3" class="flex justify-center gap-6 enStop">
                 <div class="start">

@@ -8,7 +8,7 @@ export const useGlobalConfig = defineStore('global', {
             globalConfig: {
                 rowCount: 17,
                 isSHowPrizeList: true,
-                topTitle: 'Vòng quay may mắn',
+                topTitle: 'Lucky draw',
                 theme: {
                     name: 'dracula',
                     detail: { primary: '#0f5fd3' },
@@ -221,7 +221,7 @@ export const useGlobalConfig = defineStore('global', {
             this.globalConfig = {
                 rowCount: 17,
                 isSHowPrizeList: true,
-                topTitle: 'Vòng quay may mắn',
+                topTitle: 'Lucky draw',
                 theme: {
                     name: 'dracula',
                     detail: { primary: '#0f5fd3' },
