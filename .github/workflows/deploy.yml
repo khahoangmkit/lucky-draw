@@ -37,7 +37,8 @@ jobs:
   deploy:
     # Chờ "build" xong mới chạy "deploy"
     needs: build
-
+    env:
+      GH_PAT: ${{ secrets.GH_PAT }}
     # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
     permissions:
       pages: write      # to deploy to Pages
