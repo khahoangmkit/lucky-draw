@@ -221,19 +221,19 @@ export const useGlobalConfig = defineStore('global', {
             this.globalConfig = {
                 rowCount: 17,
                 isSHowPrizeList: true,
-                topTitle: 'Lucky draw',
+                topTitle: '',
                 theme: {
                     name: 'dracula',
                     detail: { primary: '#0f5fd3' },
                     cardColor: '#ff79c6',
-                    cardWidth: 140,
+                    cardWidth: 160,
                     cardHeight: 200,
                     textColor: '#ffffff',
                     luckyCardColor: '#ECB1AC',
                     textSize: 30,
                     patternColor: '#1b66c9',
                     patternList: defaultPatternList as number[],
-                    background:{url: null}, // 背景图片
+                    background:{url: '/log-lottery/yer.jpg'}, // 背景图片
                 },
                 musicList: defaultMusicList as IMusic[],
                 imageList: defaultImageList as IImage[],
