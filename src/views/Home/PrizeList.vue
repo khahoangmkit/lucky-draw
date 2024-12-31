@@ -190,12 +190,12 @@ onMounted(() => {
                         <!-- <p class="p-0 m-0">{{ item.isUsedCount }}/{{ item.count }}</p> -->
                     </div>
                     <div class="flex flex-col gap-1 mr-2">
-                        <div class="tooltip tooltip-left" data-tip="编辑">
+                        <div class="tooltip tooltip-left" data-tip="Sửa">
                             <div class="cursor-pointer hover:text-blue-400" @click="addTemporaryPrize">
                                 <svg-icon name="edit"></svg-icon>
                             </div>
                         </div>
-                        <div class="tooltip tooltip-left" data-tip="删除">
+                        <div class="tooltip tooltip-left" data-tip="Xóa">
                             <div class="cursor-pointer hover:text-blue-400" @click="deleteTemporaryPrize">
                                 <svg-icon name="delete"></svg-icon>
                             </div>

@@ -159,14 +159,14 @@ onMounted(() => {
         <h2>Quản lý nhân viên</h2>
         <div class="flex gap-3">
             <button class="btn btn-error btn-sm" @click="delAllDataDialog.showModal()">Xóa tất cả</button>
-            <div class="tooltip tooltip-bottom" data-tip="下载文件后，请在excel中填写数据，并保存为xlsx格式">
+            <div class="tooltip tooltip-bottom" data-tip="Sau khi tải file về, bạn điền dữ liệu vào excel và lưu dưới dạng xlsx">
                 <a class="no-underline btn btn-secondary btn-sm" download="template_data.xlsx" target="_blank"
                     href="/log-lottery/template_data.xlsx">Tải file mẫu</a>
             </div>
             <div class="">
                 <label for="explore">
 
-                    <div class="tooltip tooltip-bottom" data-tip="上传修改好的excel文件">
+                    <div class="tooltip tooltip-bottom" data-tip="Tải lên tệp excel đã sửa đổi">
                         <input type="file" class="" id="explore" style="display: none" @change="handleFileChange"
                             :accept="limitType" />
 

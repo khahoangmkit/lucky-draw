@@ -390,7 +390,7 @@ const startLottery = () => {
         toast.open({
             message: 'Đã đủ tất cả người trúng thưởng',
             type: 'warning',
-            position: 'top-right',
+            position: 'bottom-right',
             duration: 10000
         })
 
@@ -402,7 +402,7 @@ const startLottery = () => {
         toast.open({
             message: 'Số lượng người tham gia không đủ',
             type: 'warning',
-            position: 'top-right',
+            position: 'bottom-right',
             duration: 10000
         })
 
@@ -432,7 +432,7 @@ const startLottery = () => {
     toast.open({
         message: `Bắt đầu chọn ${currentPrize.value.name} ${leftover} người`,
         type: 'default',
-        position: 'top-right',
+        position: 'bottom-right',
         duration: 8000
     })
     currentStatus.value = 2
