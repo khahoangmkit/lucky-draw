@@ -10,7 +10,7 @@
         "build:pre": "vue-tsc --noEmit && vite build --mode prebuild",
         "test": "vitest",
         "test:ui": "vitest --ui",
-        "preview": "vite preview",
+        "preview": "vite preview --host 0.0.0.0",
         "lint": "eslint ./src --ext .vue,.js,.ts,.jsx,.tsx --fix"
     },
     "dependencies": {

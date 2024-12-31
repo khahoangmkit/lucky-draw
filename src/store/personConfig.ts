@@ -8,7 +8,7 @@ export const usePersonConfig = defineStore('person', {
     state() {
         return {
             personConfig: {
-                allPersonList: [] as IPersonConfig[],
+                allPersonList: defaultPersonList as IPersonConfig[],
                 alreadyPersonList: [] as IPersonConfig[],
             }
         };
