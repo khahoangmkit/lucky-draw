@@ -95,7 +95,7 @@ watch(() => imgUploadToast.value, (val) => {
                         <div class="w-12 h-12 mask mask-squircle hover:w-14 hover:h-14">
                             <!-- <img v-if="item.url!=='Storage'" :src="item.url" alt="Avatar Tailwind CSS Component" /> -->
 <!--                            <ImageSync :imgItem="item"></ImageSync>-->
-<!--                          <img :src="`/${item.url}`" alt="Prize" class="object-cover h-full rounded-xl" />-->
+<!--                          <img :src ="`/${item.url}`" alt="Prize" class="object-cover h-full rounded-xl" />-->
                         </div>
                     </div>
                     <div class="w-64">
