@@ -213,7 +213,7 @@ export const useGlobalConfig = defineStore('global', {
             this.globalConfig.isSHowPrizeList = isShowPrizeList;
         },
         // 设置背景图片
-        setBackground(background:{}){
+        setBackground(background: any){
             this.globalConfig.theme.background = background
         },
         // 重置所有配置
