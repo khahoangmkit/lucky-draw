@@ -692,18 +692,18 @@ onUnmounted(() => {
                     </button>
                 </div>
 
-                <div class="start">
-                    <button class="btn-cancel" @click="quitLottery"><strong>Hủy</strong>
-                        <div id="container-stars">
-                            <div id="stars"></div>
-                        </div>
+<!--                <div class="start">-->
+<!--                    <button class="btn-cancel" @click="quitLottery"><strong>Hủy</strong>-->
+<!--                        <div id="container-stars">-->
+<!--                            <div id="stars"></div>-->
+<!--                        </div>-->
 
-                        <div id="glow">
-                            <div class="circle"></div>
-                            <div class="circle"></div>
-                        </div>
-                    </button>
-                </div>
+<!--                        <div id="glow">-->
+<!--                            <div class="circle"></div>-->
+<!--                            <div class="circle"></div>-->
+<!--                        </div>-->
+<!--                    </button>-->
+<!--                </div>-->
             </div>
             <!--   <button id="table" @click="transform(targets.table, 2000)">TABLE</button> -->
             <!--  <button id="helix" @click="transform(targets.helix, 2000)">HELIX</button> -->
