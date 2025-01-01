@@ -22,7 +22,7 @@ const scrollToTop=()=>{
     <ToTop @click="scrollToTop" v-if="y>400"></ToTop>
     <main ref="mainContainer" class="box-content w-screen h-screen overflow-x-hidden overflow-y-auto main-container">
       <div class="logo-draw" style="position: relative">
-        <img style="position: absolute; right: 35%; top: 40%;" src="/lucky.png" alt="logo">
+        <img style="position: absolute; right: 35%; top: 40%; width: 30%" src="/lucky.png" alt="logo">
       </div>
       <router-view class="h-full main-container-content"></router-view>
 
