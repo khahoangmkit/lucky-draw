@@ -468,7 +468,8 @@ const stopLottery = async () => {
             .start()
             .onComplete(() => {
                 canOperate.value = true
-                currentStatus.value = 3
+                currentStatus.value = 5
+                setTimeout(() => currentStatus.value = 3, 5000)
             })
         new TWEEN.Tween(item.rotation)
             .to({
@@ -486,6 +487,7 @@ const stopLottery = async () => {
 }
 // 继续
 const continueLottery = async () => {
+
     if (!canOperate.value) {
         return
     }
