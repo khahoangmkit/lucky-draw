@@ -12,7 +12,7 @@ export const useGlobalConfig = defineStore('global', {
                 theme: {
                     name: 'dracula',
                     detail: { primary: '#0f5fd3' },
-                    cardColor: '#ffa727',
+                    cardColor: '#83c683',
                     cardWidth: 140,
                     cardHeight: 200,
                     textColor: '#ffffff',

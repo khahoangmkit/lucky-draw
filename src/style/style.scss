@@ -30,8 +30,12 @@
 
 .lucky-element-card {
     cursor: default;
-    background-color: #002AD0!important;
-    border-radius: 5px;
+    color: #fff;
+    padding-left: 6px!important;
+    padding-right: 6px!important;
+    background: linear-gradient(to right, rgb(121, 159, 12), rgb(172, 187, 120))!important;
+    border: 5px solid #f5db79!important;
+    border-radius: 8px!important;
     text-align: center;
     &::before {
         background-color: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100%);
@@ -49,9 +53,10 @@
     .card-name {
         position: absolute;
         font-size: 36px!important;
+        text-transform: uppercase;
         top: 7rem;
-        left: 0;
-        right: 0;
+        left: 2px;
+        right: 2px;
         line-height: unset!important;
         font-weight: bold;
         //white-space: nowrap;
