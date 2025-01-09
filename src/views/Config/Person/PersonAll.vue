@@ -24,6 +24,12 @@ const handleFileChange = async (e: Event) => {
     const excelData = XLSX.utils.sheet_to_json(workSheet)
     const allData = addOtherInfo(excelData);
     personConfig.resetPerson()
+    console.log(allData.map(item => ({
+      ...item,
+      uid: `${item.uid}`,
+      x: 0,
+      y: 5
+    })), "============")
     personConfig.addNotPersonList(allData)
 }
 const exportData = () => {
