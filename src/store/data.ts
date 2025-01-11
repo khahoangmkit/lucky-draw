@@ -1040,7 +1040,7 @@ export const defaultPersonList = <IPersonConfig[]>
     {
       "uid": "70",
       "name": "Bà Nguyễn Thị Quỳnh Chi",
-      "identity": "Phó phụ trách P. Nhận TBH",
+      "identity": "Phó phụ trách Phòng nhận Tái bảo hiểm",
       "x": 0,
       "y": 5,
       "department": "Ban Tái bảo hiểm",
@@ -2330,7 +2330,7 @@ export const defaultPersonList = <IPersonConfig[]>
     {
       "uid": "156",
       "name": "Ông Lê Thanh Nhã",
-      "identity": "Ủy viên BCH Công đoàn",
+      "identity": "Ủy viên Ban chấp hành Công đoàn",
       "x": 0,
       "y": 5,
       "department": "Trà Vinh",
@@ -3260,7 +3260,7 @@ export const defaultPersonList = <IPersonConfig[]>
     {
       "uid": "218",
       "name": "Ông Vũ Tuyên Huấn",
-      "identity": "Giám đốc Chi nhánh XD Hà Nội",
+      "identity": "Giám đốc Chi nhánh Xăng dầu Hà Nội",
       "x": 0,
       "y": 5,
       "department": "Công ty Xăng dầu Khu vực 3",
@@ -3290,7 +3290,7 @@ export const defaultPersonList = <IPersonConfig[]>
     {
       "uid": "220",
       "name": "Ông Bùi Văn Thành",
-      "identity": "Chủ tịch HĐQT",
+      "identity": "Chủ tịch Hội đồng quản trị",
       "x": 0,
       "y": 5,
       "department": "Công ty CP Thương mại và Vận tải Petrolimex Hà Nội",
@@ -3380,7 +3380,7 @@ export const defaultPersonList = <IPersonConfig[]>
     {
       "uid": "226",
       "name": "Ông Đỗ Lâm Bằng",
-      "identity": "TP Kinh doanh",
+      "identity": "Trưởng phòng Kinh doanh",
       "x": 0,
       "y": 5,
       "department": "Công ty Xăng dầu Tuyên Quang",
@@ -3440,7 +3440,7 @@ export const defaultPersonList = <IPersonConfig[]>
     {
       "uid": "230",
       "name": "Bà Phạm Thị Hồng Yêm",
-      "identity": "Giám đốc CN Bình Phước",
+      "identity": "Giám đốc Chi nhánh Bình Phước",
       "x": 0,
       "y": 5,
       "department": "Công ty Xăng dầu Sông Bé",
@@ -3470,11 +3470,11 @@ export const defaultMusicList = [
 
 export const defaultPrizeList = <IPrizeConfig[]>[
   {
-    id: '001',
-    name: 'Giải khuyến khích',
-    sort: 1,
+    id: '000',
+    name: 'Giải khuyến khích 1',
+    sort: 0,
     isAll: false,
-    count: 30,
+    count: 15,
     isUsedCount: 0,
     picture: {
       id: '2',
@@ -3485,7 +3485,28 @@ export const defaultPrizeList = <IPrizeConfig[]>[
       enable: true,
       countList: []
     },
-    desc: 'Giải khuyến khích',
+    desc: 'Giải khuyến khích 1',
+    isShow: true,
+    isUsed: false,
+    frequency: 1,
+  },
+  {
+    id: '001',
+    name: 'Giải khuyến khích 2',
+    sort: 1,
+    isAll: false,
+    count: 15,
+    isUsedCount: 0,
+    picture: {
+      id: '2',
+      name: 'image_3',
+      url: 'https://1kw20.fun/resource/image/image3.png'
+    },
+    separateCount: {
+      enable: true,
+      countList: []
+    },
+    desc: 'Giải khuyến khích 2',
     isShow: true,
     isUsed: false,
     frequency: 1,

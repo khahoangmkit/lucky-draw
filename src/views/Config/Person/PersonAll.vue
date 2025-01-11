@@ -26,7 +26,7 @@ const handleFileChange = async (e: Event) => {
     personConfig.resetPerson()
     const listAllPerson = allData.map(item => ({
       uid: `${item.uid}`,
-      name: `${item.sex === 'Nam' ? 'Ông' : 'Bà'} ${item.name}`,
+      name: `${item.name}`,
       identity: item.identity,
       x: 0,
       y: 5,
