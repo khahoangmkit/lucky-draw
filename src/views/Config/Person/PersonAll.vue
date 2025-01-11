@@ -32,7 +32,22 @@ const handleFileChange = async (e: Event) => {
       x: 0,
       y: 5
     })), "============")
-    personConfig.addNotPersonList(allData)
+    const listAllPerson = allData.map(item => ({
+      uid: `${item.uid}`,
+      name: `${item.sex === 'Nam' ? 'Ông' : 'Bà'} ${item.name}`,
+      identity: item.identity,
+      x: 0,
+      y: 5,
+      department: item.department,
+      id: item.id,
+      createTime: "2025-01-11 12:13:40",
+      updateTime: "2025-01-11 12:13:40",
+      prizeName: [],
+      prizeTime: [],
+      prizeId: [],
+      isWin: false,
+    }));
+    personConfig.addNotPersonList(listAllPerson)
 }
 const exportData = () => {
     let data = JSON.parse(JSON.stringify(allPersonList.value))

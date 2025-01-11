@@ -5,8 +5,6 @@ export const defaultPersonList = <IPersonConfig[]>
     {
       "uid": "1",
       "name": "Ông Phạm Thanh Hải",
-      "sex": "Nam",
-      "vp": "VPTCT",
       "department": "Ban Tổng Giám Đốc",
       "identity": "Chủ tịch Hội Đồng Quản Trị",
       "id": 0,
