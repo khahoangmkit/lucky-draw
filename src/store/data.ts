@@ -3005,7 +3005,7 @@ export const defaultPersonList = <IPersonConfig[]>
     {
       "uid": "201",
       "name": "Bà Hoàng Thị Kim Thương",
-      "identity": "PP Kinh doanh 3, Chủ tịch Công đoàn",
+      "identity": "Phó phòng Kinh doanh 3, Chủ tịch Công đoàn",
       "x": 0,
       "y": 5,
       "department": "Huế",
