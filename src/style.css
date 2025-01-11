@@ -8,7 +8,7 @@ html {
     padding: 0;
     overflow-y: hidden;
     overflow-x: hidden;
-    font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", ui-serif
+    /*font-family: 'Roboto', sans-serif;*/
 }
 
 ul {
