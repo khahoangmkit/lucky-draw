@@ -24,14 +24,6 @@ const handleFileChange = async (e: Event) => {
     const excelData = XLSX.utils.sheet_to_json(workSheet)
     const allData = addOtherInfo(excelData);
     personConfig.resetPerson()
-    console.log(allData.map(item => ({
-      ...item,
-      uid: `${item.uid}`,
-      name: `${item.sex === 'Nam' ? 'Ông' : 'Bà'} ${item.name}`,
-      identity: item.identity,
-      x: 0,
-      y: 5
-    })), "============")
     const listAllPerson = allData.map(item => ({
       uid: `${item.uid}`,
       name: `${item.sex === 'Nam' ? 'Ông' : 'Bà'} ${item.name}`,
@@ -47,7 +39,8 @@ const handleFileChange = async (e: Event) => {
       prizeId: [],
       isWin: false,
     }));
-    personConfig.addNotPersonList(listAllPerson)
+  console.log(listAllPerson, "============")
+  personConfig.addNotPersonList(listAllPerson)
 }
 const exportData = () => {
     let data = JSON.parse(JSON.stringify(allPersonList.value))
