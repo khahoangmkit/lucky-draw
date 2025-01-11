@@ -27,6 +27,8 @@ const handleFileChange = async (e: Event) => {
     console.log(allData.map(item => ({
       ...item,
       uid: `${item.uid}`,
+      name: `${item.sex === 'Nam' ? 'Ông' : 'Bà'} ${item.name}`,
+      identity: item.identity,
       x: 0,
       y: 5
     })), "============")
