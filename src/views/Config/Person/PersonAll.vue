@@ -27,10 +27,10 @@ const handleFileChange = async (e: Event) => {
     const listAllPerson = allData.map(item => ({
       uid: `${item.uid}`,
       name: `${item.name}`,
-      identity: item.identity,
+      identity: item.department.split(" -")[0],
       x: 0,
       y: 5,
-      department: item.department,
+      department: item.department.split(" -")[1],
       id: item.id,
       createTime: "2025-01-11 12:13:40",
       updateTime: "2025-01-11 12:13:40",

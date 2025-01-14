@@ -41,7 +41,7 @@ const deleteTemporaryPrize = () => {
 }
 const submitTemporaryPrize = () => {
     if (!temporaryPrize.value.name || !temporaryPrize.value.count) {
-        alert('请填写完整信息')
+        alert('Vui lòng điền thông tin đầy đủ')
 
         return
     }
@@ -252,7 +252,7 @@ onMounted(() => {
         </div>
 
         <transition name="prize-operate" :appear="true">
-            <div class="tooltip tooltip-right" data-tip="奖项列表" v-show="!prizeShow">
+            <div class="tooltip tooltip-right" data-tip="Danh sách giải" v-show="!prizeShow">
                 <div class="flex items-center w-6 h-8 rounded-r-lg cursor-pointer prize-option bg-slate-500/50"
                     @click="prizeShow = !prizeShow">
                     <svg-icon name="arrow_right" class="w-full h-full"></svg-icon>
