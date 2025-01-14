@@ -12,13 +12,13 @@ export const useGlobalConfig = defineStore('global', {
                 theme: {
                     name: 'dracula',
                     detail: { primary: '#0f5fd3' },
-                    cardColor: '#32b7e9',
+                    cardColor: '#95121F',
                     cardWidth: 140,
                     cardHeight: 200,
                     textColor: '#ffffff',
                     luckyCardColor: '#ECB1AC',
                     textSize: 30,
-                    patternColor: '#1b66c9',
+                    patternColor: '#917000',
                     patternList: defaultPatternList as number[],
                     background:{}, // 背景颜色或图片
                 },
