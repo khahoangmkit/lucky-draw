@@ -2619,7 +2619,7 @@ export const defaultPrizeList = <IPrizeConfig[]>[
     name: 'Giải nhất',
     sort: 1,
     isAll: false,
-    count: 2,
+    count: 1,
     isUsedCount: 0,
     picture: {
       id: '0',
@@ -2635,27 +2635,27 @@ export const defaultPrizeList = <IPrizeConfig[]>[
     isUsed: false,
     frequency: 1,
   },
-  {
-    id: '004',
-    name: 'Giải giải đặc biệt',
-    sort: 4,
-    isAll: false,
-    count: 1,
-    isUsedCount: 0,
-    picture: {
-      id: '3',
-      name: 'image_3',
-      url: 'https://1kw20.fun/resource/image/image3.png'
-    },
-    separateCount: {
-      enable: false,
-      countList: []
-    },
-    desc: 'Giải giải đặc biệt',
-    isShow: true,
-    isUsed: false,
-    frequency: 1,
-  },
+  // {
+  //   id: '004',
+  //   name: 'Giải giải đặc biệt',
+  //   sort: 4,
+  //   isAll: false,
+  //   count: 1,
+  //   isUsedCount: 0,
+  //   picture: {
+  //     id: '3',
+  //     name: 'image_3',
+  //     url: 'https://1kw20.fun/resource/image/image3.png'
+  //   },
+  //   separateCount: {
+  //     enable: false,
+  //     countList: []
+  //   },
+  //   desc: 'Giải giải đặc biệt',
+  //   isShow: true,
+  //   isUsed: false,
+  //   frequency: 1,
+  // },
   // {
   //   id: '005',
   //   name: 'Giải đặc biệt',
