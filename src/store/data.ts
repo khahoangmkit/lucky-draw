@@ -2582,7 +2582,7 @@ export const defaultPrizeList = <IPrizeConfig[]>[
     name: 'Giải nhì',
     sort: 2,
     isAll: false,
-    count: 2,
+    count: 1,
     isUsedCount: 0,
     picture: {
       id: '1',
@@ -2591,23 +2591,7 @@ export const defaultPrizeList = <IPrizeConfig[]>[
     },
     separateCount: {
       enable: false,
-      countList: [
-        {
-          id: '0',
-          count: 1,
-          isUsedCount: 0,
-        },
-        {
-          id: '1',
-          count: 1,
-          isUsedCount: 0,
-        },
-        // {
-        //   id: '2',
-        //   count: 1,
-        //   isUsedCount: 0,
-        // },
-      ]
+      countList: []
     },
     desc: 'Giải nhì',
     isShow: true,
@@ -2616,7 +2600,7 @@ export const defaultPrizeList = <IPrizeConfig[]>[
   },
   {
     id: '003',
-    name: 'Giải nhất',
+    name: 'Giải nhì',
     sort: 1,
     isAll: false,
     count: 1,
@@ -2630,53 +2614,32 @@ export const defaultPrizeList = <IPrizeConfig[]>[
       enable: false,
       countList: []
     },
+    desc: 'Giải nhì',
+    isShow: true,
+    isUsed: false,
+    frequency: 1,
+  },
+  {
+    id: '004',
+    name: 'Giải nhất',
+    sort: 4,
+    isAll: false,
+    count: 1,
+    isUsedCount: 0,
+    picture: {
+      id: '3',
+      name: 'image_3',
+      url: 'https://1kw20.fun/resource/image/image3.png'
+    },
+    separateCount: {
+      enable: false,
+      countList: []
+    },
     desc: 'Giải nhất',
     isShow: true,
     isUsed: false,
     frequency: 1,
   },
-  // {
-  //   id: '004',
-  //   name: 'Giải giải đặc biệt',
-  //   sort: 4,
-  //   isAll: false,
-  //   count: 1,
-  //   isUsedCount: 0,
-  //   picture: {
-  //     id: '3',
-  //     name: 'image_3',
-  //     url: 'https://1kw20.fun/resource/image/image3.png'
-  //   },
-  //   separateCount: {
-  //     enable: false,
-  //     countList: []
-  //   },
-  //   desc: 'Giải giải đặc biệt',
-  //   isShow: true,
-  //   isUsed: false,
-  //   frequency: 1,
-  // },
-  // {
-  //   id: '005',
-  //   name: 'Giải đặc biệt',
-  //   sort: 5,
-  //   isAll: false,
-  //   count: 1,
-  //   isUsedCount: 0,
-  //   picture: {
-  //     id: '4',
-  //     name: 'image_4',
-  //     url: 'https://1kw20.fun/resource/image/image4.png'
-  //   },
-  //   separateCount: {
-  //     enable: false,
-  //     countList: []
-  //   },
-  //   desc: 'Giải đặc biệt',
-  //   isShow: true,
-  //   isUsed: false,
-  //   frequency: 1,
-  // }
 ]
 export const defaultCurrentPrize = <IPrizeConfig>{
   id: '001',
