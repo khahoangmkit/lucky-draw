@@ -2435,112 +2435,6 @@ export const defaultMusicList = [
 
 export const defaultPrizeList = <IPrizeConfig[]>[
   {
-    id: '000',
-    name: 'Giải khuyến khích',
-    sort: 0,
-    isAll: false,
-    count: 16,
-    isUsedCount: 0,
-    picture: {
-      id: '2',
-      name: 'image_3',
-      url: 'https://1kw20.fun/resource/image/image3.png'
-    },
-    separateCount: {
-      enable: true,
-      countList: [
-        {
-          id: '0',
-          count: 1,
-          isUsedCount: 0,
-        },
-        {
-          id: '1',
-          count: 1,
-          isUsedCount: 0,
-        },
-        {
-          id: '2',
-          count: 1,
-          isUsedCount: 0,
-        },
-        {
-          id: '3',
-          count: 1,
-          isUsedCount: 0,
-        },
-        {
-          id: '4',
-          count: 1,
-          isUsedCount: 0,
-        },{
-          id: '5',
-          count: 1,
-          isUsedCount: 0,
-        },
-        {
-          id: '6',
-          count: 1,
-          isUsedCount: 0,
-        },
-        {
-          id: '7',
-          count: 1,
-          isUsedCount: 0,
-        },
-        {
-          id: '8',
-          count: 1,
-          isUsedCount: 0,
-        },
-        {
-          id: '9',
-          count: 1,
-          isUsedCount: 0,
-        },
-        {
-          id: '10',
-          count: 1,
-          isUsedCount: 0,
-        },
-        {
-          id: '11',
-          count: 1,
-          isUsedCount: 0,
-        },
-        {
-          id: '12',
-          count: 1,
-          isUsedCount: 0,
-        },
-        {
-          id: '13',
-          count: 1,
-          isUsedCount: 0,
-        },
-        {
-          id: '14',
-          count: 1,
-          isUsedCount: 0,
-        },
-        {
-          id: '15',
-          count: 1,
-          isUsedCount: 0,
-        },
-        {
-          id: '16',
-          count: 1,
-          isUsedCount: 0,
-        },
-      ]
-    },
-    desc: 'Giải khuyến khích',
-    isShow: true,
-    isUsed: false,
-    frequency: 1,
-  },
-  {
     id: '001',
     name: 'Giải ba',
     sort: 1,
@@ -2550,7 +2444,7 @@ export const defaultPrizeList = <IPrizeConfig[]>[
     picture: {
       id: '2',
       name: 'image_3',
-      url: 'https://1kw20.fun/resource/image/image3.png'
+      url: ''
     },
     separateCount: {
       enable: true,
@@ -2587,7 +2481,7 @@ export const defaultPrizeList = <IPrizeConfig[]>[
     picture: {
       id: '1',
       name: 'image_2',
-      url: 'https://1kw20.fun/resource/image/image2.png'
+      url: ''
     },
     separateCount: {
       enable: false,
@@ -2608,7 +2502,7 @@ export const defaultPrizeList = <IPrizeConfig[]>[
     picture: {
       id: '0',
       name: 'image_1',
-      url: 'https://1kw20.fun/resource/image/image1.png'
+      url: ''
     },
     separateCount: {
       enable: false,
@@ -2629,7 +2523,7 @@ export const defaultPrizeList = <IPrizeConfig[]>[
     picture: {
       id: '3',
       name: 'image_3',
-      url: 'https://1kw20.fun/resource/image/image3.png'
+      url: ''
     },
     separateCount: {
       enable: false,
