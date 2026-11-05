@@ -480,13 +480,16 @@ const stopLottery = async () => {
             .easing(TWEEN.Easing.Exponential.InOut)
             .start()
             .onComplete(() => {
-                confettiFire()
-                resetCamera()
+                if (index === 0) {
+                    confettiFire()
+                    resetCamera()
+                }
             })
     })
 }
 // 继续
 const continueLottery = async () => {
+    stopFireworks()
 
     if (!canOperate.value) {
         return
@@ -512,64 +515,140 @@ const continueLottery = async () => {
     await enterLottery()
 }
 const quitLottery = () => {
+    stopFireworks()
     enterLottery()
     currentStatus.value = 0
 }
-// 庆祝动画
-const confettiFire = () => {
-    const duration = 3 * 1000;
-    const end = Date.now() + duration;
-    (function frame() {
-        // launch a few confetti from the left edge
-        confetti({
-            particleCount: 2,
-            angle: 60,
-            spread: 55,
-            origin: { x: 0 }
-        });
-        // and launch a few from the right edge
-        confetti({
-            particleCount: 2,
-            angle: 120,
-            spread: 55,
-            origin: { x: 1 }
-        });
 
-        // keep going until we are out of time
-        if (Date.now() < end) {
-            requestAnimationFrame(frame);
-        }
-    }());
-    centerFire(0.25, {
-        spread: 26,
-        startVelocity: 55,
-    });
-    centerFire(0.2, {
-        spread: 60,
-    });
-    centerFire(0.35, {
-        spread: 100,
-        decay: 0.91,
-        scalar: 0.8
-    });
-    centerFire(0.1, {
-        spread: 120,
-        startVelocity: 25,
-        decay: 0.92,
-        scalar: 1.2
-    });
-    centerFire(0.1, {
-        spread: 120,
-        startVelocity: 45,
-    });
+// Bảng màu sắc pháo hoa rực rỡ, lấp lánh
+const FIREWORK_COLORS = [
+    '#ffd700', // Vàng hoàng gia
+    '#ff0055', // Đỏ hồng thắm
+    '#00e5ff', // Xanh cyan phát sáng
+    '#ff7700', // Cam rực rỡ
+    '#76ff03', // Xanh lục neon
+    '#e040fb', // Tím phát sáng
+    '#ffffff', // Bạc trắng lấp lánh
+    '#ffea00', // Vàng tươi
+    '#00e676', // Xanh ngọc
+    '#3d5afe', // Xanh lam đậm
+    '#ff3d00', // Đỏ lửa
+]
+
+let fireworkTimeouts: ReturnType<typeof setTimeout>[] = []
+let fireworkIntervals: ReturnType<typeof setInterval>[] = []
+
+const stopFireworks = () => {
+    fireworkTimeouts.forEach(timer => clearTimeout(timer))
+    fireworkTimeouts = []
+    fireworkIntervals.forEach(timer => clearInterval(timer))
+    fireworkIntervals = []
+    confetti.reset()
 }
-const centerFire = (particleRatio: number, opts: any) => {
-    const count = 200
+
+// Bắn một chùm pháo hoa thưa, thanh thoát, nổ tròn 360 độ tại (x, y)
+const fireworkBurst = (
+    x: number,
+    y: number,
+    opts: {
+        particleCount?: number
+        startVelocity?: number
+        scalar?: number
+        spread?: number
+        decay?: number
+        gravity?: number
+        ticks?: number
+    } = {}
+) => {
+    const {
+        particleCount = 45,
+        startVelocity = 52,
+        scalar = 1.3,
+        spread = 360,
+        decay = 0.93,
+        gravity = 0.8,
+        ticks = 260,
+    } = opts
+
     confetti({
-        origin: { y: 0.7 },
-        ...opts,
-        particleCount: Math.floor(count * particleRatio)
-    });
+        origin: { x, y },
+        particleCount,
+        angle: 90,
+        spread,
+        startVelocity,
+        decay,
+        gravity,
+        scalar,
+        ticks,
+        shapes: ['circle', 'square', 'star'],
+        colors: FIREWORK_COLORS,
+        zIndex: 9999,
+    })
+}
+
+// Hàm lấy số ngẫu nhiên trong khoảng [min, max]
+const randomInRange = (min: number, max: number) => Math.random() * (max - min) + min
+
+// Chọn vị trí nổ thông minh: ưu tiên phía trên cao và 2 bên cánh, tránh che lấp thẻ trúng thưởng ở trung tâm
+const getRandomFireworkPosition = () => {
+    const zone = Math.random()
+    if (zone < 0.45) {
+        // Phía trên cao (trên đỉnh các thẻ)
+        return {
+            x: randomInRange(0.15, 0.85),
+            y: randomInRange(0.12, 0.26),
+        }
+    } else if (zone < 0.72) {
+        // Bên cánh trái
+        return {
+            x: randomInRange(0.08, 0.28),
+            y: randomInRange(0.25, 0.55),
+        }
+    } else {
+        // Bên cánh phải
+        return {
+            x: randomInRange(0.72, 0.92),
+            y: randomInRange(0.25, 0.55),
+        }
+    }
+}
+
+// 庆祝动画 - Hiệu ứng pháo hoa thưa, thanh thoát, nổ to rộng nhưng không che khuất thẻ
+const confettiFire = () => {
+    stopFireworks()
+
+    const duration = 4000
+    const end = Date.now() + duration
+
+    // 1. Mở màn: 2 chùm pháo hoa thanh lịch nổ ở 2 góc trên bên trái và phải
+    fireworkBurst(0.2, 0.2, { particleCount: 45, startVelocity: 55, scalar: 1.35 })
+    fireworkBurst(0.8, 0.2, { particleCount: 45, startVelocity: 55, scalar: 1.35 })
+
+    // 2. Chuỗi pháo hoa nổ thưa thớt, ngắt quãng (mỗi 700ms nổ 1 quả tại các vị trí xung quanh thẻ)
+    const fireworkInterval = setInterval(() => {
+        if (Date.now() > end) {
+            clearInterval(fireworkInterval)
+            return
+        }
+
+        const pos = getRandomFireworkPosition()
+        const pCount = Math.floor(randomInRange(35, 48))
+        const velocity = randomInRange(48, 58)
+
+        fireworkBurst(pos.x, pos.y, {
+            particleCount: pCount,
+            startVelocity: velocity,
+            scalar: 1.3,
+        })
+    }, 700)
+    fireworkIntervals.push(fireworkInterval)
+
+    // 3. Đợt kết nhẹ nhàng (sau 3 giây): nổ 2 chùm pháo hoa ở 2 bên cánh
+    const finaleTimer = setTimeout(() => {
+        fireworkBurst(0.15, 0.28, { particleCount: 50, startVelocity: 55, scalar: 1.35 })
+        fireworkBurst(0.85, 0.28, { particleCount: 50, startVelocity: 55, scalar: 1.35 })
+    }, 3000)
+    fireworkTimeouts.push(finaleTimer)
 }
 
 const setDefaultPersonList = () => {
@@ -636,6 +715,7 @@ onMounted(() => {
     listenKeyboard()
 });
 onUnmounted(() => {
+    stopFireworks()
     clearInterval(intervalTimer.value)
     intervalTimer.value = null
     window.removeEventListener('keydown', listenKeyboard)
