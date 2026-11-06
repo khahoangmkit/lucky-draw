@@ -46,7 +46,8 @@ export const useElementStyle = (element: any, person: IPersonConfig, index: numb
 
     element.children[2].style.fontSize = textSize * 0.5 + 'px'
     if (person.department || person.identity) {
-        element.children[2].innerHTML = `${person.identity ? person.identity : ''}<br/>${person.department ? person.department : ''}`
+        const detailList = [person.identity, person.department].filter(Boolean)
+        element.children[2].innerHTML = detailList.join('<br/>')
     }
 
     return element

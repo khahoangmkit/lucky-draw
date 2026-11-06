@@ -141,7 +141,8 @@ const init = () => {
 
         const detail = document.createElement('div');
         detail.className = 'card-detail';
-        detail.innerHTML = `${tableData.value[i].department}<br/>${tableData.value[i].identity}`;
+        const detailList = [tableData.value[i].identity, tableData.value[i].department].filter(Boolean);
+        detail.innerHTML = detailList.join('<br/>');
         element.appendChild(detail);
 
         element = useElementStyle(element, tableData.value[i], i, patternList.value, patternColor.value, cardColor.value, cardSize.value, textSize.value)
@@ -729,7 +730,7 @@ onUnmounted(() => {
 
 <template>
     <div class="absolute z-10 flex flex-col items-center justify-center -translate-x-1/2 left-1/2">
-        <h2 class="pt-12 m-0 mb-12 font-mono tracking-wide text-center leading-12 header-title"
+        <h2 class="pt-12 m-0 mb-12 font-sans tracking-wide text-center leading-12 header-title"
             :style="{ fontSize: textSize * 1.5 + 'px', color: textColor }">{{ topTitle }}</h2>
         <div class="flex gap-3">
             <button v-if="tableData.length <= 0" class="cursor-pointer btn btn-outline btn-secondary btn-lg"
@@ -875,7 +876,7 @@ onUnmounted(() => {
 
 strong {
     z-index: 2;
-    font-family: 'Avalors Personal Use';
+    font-family: 'Montserrat', sans-serif;
     font-size: 12px;
     letter-spacing: 5px;
     color: #FFFFFF;

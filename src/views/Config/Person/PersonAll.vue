@@ -8,6 +8,7 @@ import * as XLSX from 'xlsx'
 import { readFileBinary } from '@/utils/file'
 import { addOtherInfo } from '@/utils'
 import DaiysuiTable from '@/components/DaiysuiTable/index.vue'
+import dayjs from 'dayjs'
 
 const personConfig = useStore().personConfig
 const { getAllPersonList: allPersonList, getAlreadyPersonList: alreadyPersonList } = storeToRefs(personConfig)
@@ -17,62 +18,150 @@ const limitType = '.xlsx,.xls'
 const resetDataDialog = ref()
 const delAllDataDialog = ref()
 
+const DEPARTMENT_ALIASES = [
+    'department',
+    'phòng ban',
+    'phong ban',
+    'bộ phận',
+    'bo phan',
+    'đơn vị',
+    'don vi',
+    'phòng/ban',
+    'phong/ban',
+    'phòng',
+    'phong',
+    '部门',
+]
+
+const IDENTITY_ALIASES = [
+    'identity',
+    'chức danh',
+    'chuc danh',
+    'chức vụ',
+    'chuc vu',
+    'vị trí',
+    'vi tri',
+    'vai trò',
+    'vai tro',
+    'công việc',
+    'cong viec',
+    'nghề nghiệp',
+    'nghe nghiep',
+    '身份',
+    '职位',
+]
+
+const UID_ALIASES = [
+    'uid',
+    'mã nv',
+    'ma nv',
+    'mã nhân viên',
+    'ma nhan vien',
+    'mã số',
+    'ma so',
+    'stt',
+    'số thứ tự',
+    'so thu tu',
+    'số thẻ',
+    'so the',
+    'id',
+    'msnv',
+    'sbd',
+    'số báo danh',
+    'so bao danh',
+    '编号',
+    '工号',
+]
+
+const NAME_ALIASES = [
+    'name',
+    'tên nv',
+    'ten nv',
+    'họ và tên',
+    'ho va ten',
+    'họ tên',
+    'ho ten',
+    'tên',
+    'ten',
+    'họ & tên',
+    'fullname',
+    'full name',
+    'tên nhân viên',
+    'ten nhan vien',
+    'họ tên nhân viên',
+    'ho ten nhan vien',
+    '姓名',
+]
+
+const getFieldValue = (item: Record<string, any>, aliases: string[]): string => {
+    const keys = Object.keys(item)
+    for (const key of keys) {
+        const cleanKey = key.trim().toLowerCase()
+        for (const alias of aliases) {
+            if (cleanKey === alias.trim().toLowerCase()) {
+                const val = item[key]
+                if (val !== undefined && val !== null) {
+                    return String(val).trim()
+                }
+            }
+        }
+    }
+    return ''
+}
+
 const handleFileChange = async (e: Event) => {
-    let dataBinary = await readFileBinary(((e.target as HTMLInputElement).files as FileList)[0]!)
-    let workBook = XLSX.read(dataBinary, { type: 'binary', cellDates: true })
-    let workSheet = workBook.Sheets[workBook.SheetNames[0]]
-    const excelData = XLSX.utils.sheet_to_json(workSheet)
-    const allData = addOtherInfo(excelData);
-    personConfig.resetPerson()
-    const listAllPerson = allData.map(item => ({
-      uid: `${item.uid}`,
-      name: `${item.name}`,
-      identity: "",
-      x: 0,
-      y: 5,
-      department: "",
-      id: item.id,
-      createTime: "2025-01-11 12:13:40",
-      updateTime: "2025-01-11 12:13:40",
-      prizeName: [],
-      prizeTime: [],
-      prizeId: [],
-      isWin: false,
-    }));
-  console.log(listAllPerson, "============")
-  personConfig.addNotPersonList(listAllPerson)
+    const target = e.target as HTMLInputElement
+    const file = target.files?.[0]
+    if (!file) return
+
+    try {
+        let dataBinary = await readFileBinary(file)
+        let workBook = XLSX.read(dataBinary, { type: 'binary', cellDates: true })
+        let workSheet = workBook.Sheets[workBook.SheetNames[0]]
+        const excelData = XLSX.utils.sheet_to_json(workSheet)
+        if (!excelData || excelData.length === 0) {
+            return
+        }
+        const allData = addOtherInfo(excelData)
+        personConfig.resetPerson()
+        const listAllPerson: IPersonConfig[] = allData.map((item: any, index: number) => {
+            const uid = getFieldValue(item, UID_ALIASES) || `${index + 1}`
+            const name = getFieldValue(item, NAME_ALIASES) || `Thành viên ${index + 1}`
+            const department = getFieldValue(item, DEPARTMENT_ALIASES)
+            const identity = getFieldValue(item, IDENTITY_ALIASES)
+
+            return {
+                id: item.id ?? index,
+                uid,
+                name,
+                department,
+                identity,
+                x: item.x ?? 0,
+                y: item.y ?? 5,
+                createTime: item.createTime || dayjs().format('YYYY-MM-DD HH:mm:ss'),
+                updateTime: item.updateTime || dayjs().format('YYYY-MM-DD HH:mm:ss'),
+                prizeName: [],
+                prizeTime: [],
+                prizeId: [],
+                isWin: false,
+            }
+        })
+        console.log(listAllPerson, "============")
+        personConfig.addNotPersonList(listAllPerson)
+    } finally {
+        target.value = ''
+    }
 }
 const exportData = () => {
-    let data = JSON.parse(JSON.stringify(allPersonList.value))
-    // 排除一些字段
-    for (let i = 0; i < data.length; i++) {
-        delete data[i].x
-        delete data[i].y
-        delete data[i].id
-        delete data[i].createTime
-        delete data[i].updateTime
-        delete data[i].prizeId
-        // 修改字段名称
-        if (data[i].isWin) {
-            data[i].isWin = 'YES'
-        } else {
-            data[i].isWin = 'No'
-        }
-        // 格式化数组为
-        data[i].prizeTime = data[i].prizeTime.join(',')
-        data[i].prizeName = data[i].prizeName.join(',')
-    }
-    let dataString = JSON.stringify(data)
-    dataString = dataString
-        .replaceAll(/uid/g, 'Mã NV')
-        .replaceAll(/isWin/g, 'Chiến thắng')
-        .replaceAll(/department/g, 'Phòng ban')
-        .replaceAll(/name/g, 'Tên NV')
-        .replaceAll(/identity/g, 'Chức danh')
-        .replaceAll(/prizeName/g, 'Loại giải')
-        .replaceAll(/prizeTime/g, 'Thời gian trúng giải')
-
-    data = JSON.parse(dataString)
+    const data = allPersonList.value.map((item: IPersonConfig) => ({
+        'Mã NV': item.uid,
+        'Tên NV': item.name,
+        'Phòng ban': item.department,
+        'Chức danh': item.identity,
+        'Chiến thắng': item.isWin ? 'YES' : 'NO',
+        'Loại giải': (item.prizeName || []).join(','),
+        'Thời gian trúng giải': (item.prizeTime || []).join(','),
+    }))
 
     if (data.length > 0) {
         const dataBinary = XLSX.utils.json_to_sheet(data)

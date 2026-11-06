@@ -5,8 +5,12 @@ module.exports = {
         preflight: false
     },
     theme: {
-        
-      },
+        extend: {
+            fontFamily: {
+                sans: ['Montserrat', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+            }
+        }
+    },
     content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
     plugins: [require('@tailwindcss/typography'), require('daisyui')],
     daisyui: {
