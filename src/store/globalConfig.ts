@@ -20,7 +20,7 @@ export const useGlobalConfig = defineStore('global', {
                     textSize: 30,
                     patternColor: '#28bdbf',
                     patternList: defaultPatternList as number[],
-                    background: {id: "0", name: "background", url: "background_plx.png"},
+                    background: {id: "0", name: "background", url: "background_plx.jpg"},
                 },
                 musicList: defaultMusicList as IMusic[],
                 imageList: defaultImageList as IImage[],
@@ -233,7 +233,7 @@ export const useGlobalConfig = defineStore('global', {
                     textSize: 30,
                     patternColor: '#1b66c9',
                     patternList: defaultPatternList as number[],
-                    background: {id: "0", name: "background", url: "background_plx.png"}, // 背景图片
+                    background: {id: "0", name: "background", url: "background_plx.jpg"}, // 背景图片
                 },
                 musicList: defaultMusicList as IMusic[],
                 imageList: defaultImageList as IImage[],
