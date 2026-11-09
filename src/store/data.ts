@@ -5825,7 +5825,7 @@ export const defaultPrizeList = <IPrizeConfig[]>[
   },
   {
     "id": "003",
-    "name": "Giải nhì",
+    "name": "Giải nhất",
     "sort": 1,
     "isAll": false,
     "count": 5,
@@ -5845,14 +5845,14 @@ export const defaultPrizeList = <IPrizeConfig[]>[
         }
       ]
     },
-    "desc": "Giải nhì",
+    "desc": "Giải nhất",
     "isShow": true,
     "isUsed": false,
     "frequency": 1
   },
   {
     "id": "004",
-    "name": "Giải nhất",
+    "name": "Giải đặc biệt",
     "sort": 4,
     "isAll": false,
     "count": 3,
@@ -5872,7 +5872,7 @@ export const defaultPrizeList = <IPrizeConfig[]>[
         }
       ]
     },
-    "desc": "Giải nhất",
+    "desc": "Giải đặc biệt",
     "isShow": true,
     "isUsed": false,
     "frequency": 1
