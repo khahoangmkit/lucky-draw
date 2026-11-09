@@ -5867,7 +5867,17 @@ export const defaultPrizeList = <IPrizeConfig[]>[
       "countList": [
         {
           "id": "1",
-          "count": 3,
+          "count": 1,
+          "isUsedCount": 0
+        },
+        {
+          "id": "2",
+          "count": 1,
+          "isUsedCount": 0
+        },
+        {
+          "id": "3",
+          "count": 1,
           "isUsedCount": 0
         }
       ]
